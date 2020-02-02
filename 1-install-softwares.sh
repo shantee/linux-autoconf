@@ -19,7 +19,21 @@ apt remove transmission-common transmission-gtk hexchat
 apt install youtube-dl youtube-dlg chromium-browser qbittorrent filezilla rclone rclonetray torbrowser-launcher
 
 ###############################################################################################
-
+## create "ser" command to serve directory (using node http-server)
+echo "creating ser command : /bin/ser ...."
+cat <<EOF >/bin/ser
+#!/bin/bash
+type http-server >/dev/null 2>&1 || { echo >&2 "you need to install http-server (npm install http-server)"; exit 1; }
+if [ "$1" == "stop" ]; then
+p=$(pidof http-server)
+kill $p
+echo "extinction serveur: "$p
+else
+    http-server -a localhost &
+    p=$(pidof http-server)
+    echo "PID : "$p
+fi
+EOF 
 
 # misc softwares
 # Atom
