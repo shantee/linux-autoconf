@@ -46,7 +46,19 @@ cd ~/logiciels
 
 # Nunustudio
 git clone https://github.com/tentone/nunuStudio --progress
+NUNU='/usr/bin/nunu'
+echo "#!/bin/bash">>$NUNU
+echo "cd ~/logiciels/nunuStudio">>$NUNU
+echo "npm start & ">>$NUNU
+echo "echo ''">>$NUNU
+echo "echo '+++++++++ au boulot ++++++++++++'">>$NUNU
+echo "cd ~/">>$NUNU
+echo "echo ''">>$NUNU
+echo "cd ~/">>$NUNU
+chmod +x /usr/bin/nunu
+
 # install arduino IDE
+echo "++++ installation ARDUINO IDE ++++++++++"
 cd ~/
 mkdir -p logiciels && cd logiciels
 curl -fSL  https://downloads.arduino.cc/arduino-nightly-linux64.tar.xz |tar xvpJ
