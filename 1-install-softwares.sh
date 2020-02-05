@@ -1,5 +1,5 @@
 #!/bin/bash
-. $(dirname "$0")/necho.sh
+. $(dirname "$0")/necho.sh #usage: necho bgpurple "hello" 
 ##################################################################################################################
 #
 #   DO NOT JUST RUN THIS. EXAMINE AND JUDGE. RUN AT YOUR OWN RISK.
