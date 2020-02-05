@@ -9,12 +9,25 @@ INSTALLLIST="installlist.txt" # LISTE DES PAQUET A INSTALLER
 REMOVELIST="removelist.txt" # LISTE DES PAQUETS A SUPPRIMER
 SOFTDIR="$HOME/logiciels" # DOSSIER INSTALLATION POUR CERTAINS LOGICIELS
 NUNU='/usr/bin/nunu' # COMMANDE POUR LANCER NUNUSTUDIO
-## fonctions installations logiciels ##########
-teste(){
-	echo
-	echo -e "\e[95m ++++ test ++++++\e[0m"
-	echo
+## misc functions 
+show_logo(){
+clear
+echo -e "\e[1;49;32m ____________________________________________________________\e[0m"
+echo -e "\e[1;49;32m                 __ _                     \e[0m"
+echo -e "\e[1;49;32m                / /(*)_ __  _   ___  __   \e[0m"
+echo -e "\e[1;49;32m               / / | | '_ \| | | \ \/ /   \e[0m"
+echo -e "\e[1;49;32m              / /__| | | | | |_|  X  X    \e[0m"
+echo -e "\e[1;49;32m              \____/_|_| |_|\__,_/_/\_\   \e[0m"
+echo -e "\e[1;49;32m   _______       _____      _________           ________ \e[0m"
+echo -e "\e[1;49;32m   ___    |___  ___  /________  ____/______________  __/ \e[0m"
+echo -e "\e[1;49;32m   __  /| |  / / /  __/  __ \  /   _  __ \_  __ \_  /_   \e[0m"
+echo -e "\e[1;49;32m   _  ___ / /_/ // /_ / /_/ / /___ / /_/ /  / / /  __/   \e[0m"
+echo -e "\e[1;49;32m   /_/  |_\__,_/ \__/ \____/\____/ \____//_/ /_//_/      \e[0m"
+echo -e "\e[1;49;32m    auto install basic softwares, libraries & config     \e[0m"
+echo -e "\e[1;49;32m ____________________________________________________________\e[0m"
+echo 
 }
+## fonctions installations logiciels ##########
 install_nunustudio(){
   cd "$SOFTDIR"||echo -e "\e[101mProblemn changing dir.\e[0m"
   git clone https://github.com/tentone/nunuStudio --progress
@@ -77,22 +90,8 @@ userinstall_arduino(){
 }
 #########################################################################################
 
-
-clear
-echo -e "\e[1;49;32m _______________________________________________________________\e[0m"
-echo -e "\e[1;49;32m   		   __ _                   \e[0m"
-echo -e "\e[1;49;32m   		  / /(_)_ __  _   ___  __ \e[0m"
-echo -e "\e[1;49;32m  		 / / | | '_ \| | | \ \/ / \e[0m"
-echo -e "\e[1;49;32m 		/ /__| | | | | |_| |>  <  \e[0m"
-echo -e "\e[1;49;32m 		\____/_|_| |_|\__,_/_/\_\ \e[0m"
-echo -e "\e[1;49;32m   _______       _____      _________           ________ \e[0m"
-echo -e "\e[1;49;32m   ___    |___  ___  /________  ____/______________  __/ \e[0m"
-echo -e "\e[1;49;32m   __  /| |  / / /  __/  __ \  /   _  __ \_  __ \_  /_   \e[0m"
-echo -e "\e[1;49;32m   _  ___ / /_/ // /_ / /_/ / /___ / /_/ /  / / /  __/   \e[0m"
-echo -e "\e[1;49;32m   /_/  |_\__,_/ \__/ \____/\____/ \____//_/ /_//_/      \e[0m"
-echo -e "\e[1;49;32m  ( auto install basic softwares, libraries & config. )   \e[0m"
-echo -e "\e[1;49;32m _______________________________________________________________\e[0m"
-echo 
+show_logo
+mkdir -p $TMPDIR
 echo -e "\e[1;49;33mtemp dir created in : $TMPDIR\e[0m"
 echo -e "\e[95mYou need to enter your sudo password to install pacakges\e[0m"
 [ "$UID" -eq 0 ] || exec sudo bash "$0" "$@"
