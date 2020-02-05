@@ -1,0 +1,3 @@
+transmission-common
+transmission-gtk
+hexchat
