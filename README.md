@@ -23,7 +23,7 @@ cd linux-autoconf
 
 
 ## TODO : 
-- [] move functions to other file
+- [x] move functions to other file
 - [] offer themes installations
 - [] make the script available in french and english
 
