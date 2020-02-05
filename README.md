@@ -10,17 +10,20 @@ I use it to save time after installing Linux Mint (or Ubuntu or any variant). It
 
 EASY !
 1) open terminal and copy / paste
+```bash
 git clone https://github.com/shantee/linux-autoconf/ --progress
-cd linux-autoconf
-./autoconf.sh
 
+cd linux-autoconf
+
+./autoconf.sh
+```
 (you may have to chmod +x autoconf.sh if the script doesn't start)
 
 
 ## TODO : 
-- move functions to other file
-- offer themes installations
-- make the script available in french and english
+- [] move functions to other file
+- [] offer themes installations
+- [] make the script available in french and english
 
 
 
