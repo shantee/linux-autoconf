@@ -18,10 +18,10 @@ echo -e "\e[95mYou need to enter your sudo password to install pacakges\e[0m"
 
 while IFS= read -r line || [[ -n "$line" ]]; do
   if [ $(dpkg-query -W -f='${Status}' $line 2>/dev/null | grep -c "ok installed") -eq 0 ];
-	then
-  	  echo -e "\e[1;49;32m -> installing : \e[1;49;33m $line \e[0m";
-	    sudo apt install -y $line 
-	fi
+  then
+      echo -e "\e[1;49;32m -> installing : \e[1;49;33m $line \e[0m";
+      sudo apt install -y $line 
+  fi
 done < "$INSTALLLIST"
  
 echo -e  "\e[1;31mProcéder à la désinstallation des logiciels inutiles ?\e[0m"
@@ -31,10 +31,10 @@ if [[ $REPLY =~ ^[YyOo]$ ]]
 then
  while IFS= read -r line || [[ -n "$line" ]]; do
     if [ $(dpkg-query -W -f='${Status}' $line 2>/dev/null | grep -c "ok installed") -eq 1 ];
-	  then
-  	  echo -e "\e[1;95m -> removing : \e[1;95;33m $line \e[0m";
-	    sudo apt remove -y $line 
-	  fi
+    then
+      echo -e "\e[1;95m -> removing : \e[1;95;33m $line \e[0m";
+      sudo apt remove -y $line 
+    fi
  done < "$REMOVELIST"
 fi
 echo -e "\e[1;49;32m-> updating APT (update)\e[0m";
@@ -44,7 +44,9 @@ sudo apt-get autoremove -y
 echo -e "\e[1;49;32m-> more cleaning APT (autoclean) \e[0m";
 sudo apt-get autoclean
 echo
-
+## Install NVM
+echo -e  "\e[1;49;32m++++++++++++ Install NVM +++++++++++++++++\e[0m"
+install_nvm
 
 ## create "ser" command to serve directory (using node http-server)
 echo -e  "\e[1;49;32mCréer la commande ser (pour lancer rapidement un serveur local)?\e[0m"
@@ -85,10 +87,10 @@ while read -ep "Entrez le chemin du dossier: " USERSOFTDIR; do
         mkdir -p "${USERSOFTDIR}"
         userinstall_nunustudio
         userinstall_arduino
-		break
+    break
     fi 
 done
-else	
+else  
 mkdir -p $SOFTDIR
 fi
 install_micro
