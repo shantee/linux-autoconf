@@ -19,7 +19,7 @@ cd linux-autoconf
 
 ./autoconf.sh
 ```
-(you may have to chmod +x autoconf.sh if the script doesn't start)
+
 
 
 ## TODO : 
