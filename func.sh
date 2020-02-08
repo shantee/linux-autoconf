@@ -35,6 +35,17 @@ create_ser(){
   echo 'fi'>>$FILE
   chmod +x /usr/bin/ser
 }
+
+#install wifi drivers rtl8821ce (for asustufxxx and a lot of others laptops)
+install_rtl8821(){
+apt-get install --reinstall git dkms build-essential linux-headers-$(uname -r)
+cd ~/"$TMPDIR"
+git clone https://github.com/tomaspinho/rtl8821ce
+cd rtl8821ce
+chmod +x dkms-install.sh
+chmod +x dkms-remove.sh
+sudo ./dkms-install.sh
+}
 ## fonctions installations logiciels ###################################################
 install_nunustudio(){
   cd "$SOFTDIR"||echo -e "\e[101mProblemn changing dir.\e[0m"
