@@ -2,6 +2,7 @@ wget
 curl
 httpie
 git
+uget
 p7zip-rar
 p7zip-full
 unace
