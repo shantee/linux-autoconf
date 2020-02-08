@@ -24,6 +24,7 @@ cd linux-autoconf
 
 ## TODO : 
 - [x] move functions to other file
+- [] add support for arguments : install wifi drivers (rtl8821xx)
 - [] offer themes installations
 - [] make the script available in french and english
 
