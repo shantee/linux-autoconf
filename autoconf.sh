@@ -45,7 +45,6 @@ echo -e "\e[1;49;32m-> more cleaning APT (autoclean) \e[0m";
 sudo apt-get autoclean
 echo
 ## Install NVM
-echo -e  "\e[1;49;32m++++++++++++ Install NVM +++++++++++++++++\e[0m"
 install_nvm
 
 ## create "ser" command to serve directory (using node http-server)
@@ -94,14 +93,35 @@ else
 mkdir -p $SOFTDIR
 fi
 install_micro
-echo -e "\e[1m -> Installing Nunustudio\e[0m"
 install_nunustudio
+echo -e  "\e[1;49;32mInstall rtle88xx wifi drivers ? ?\e[0m"
+echo
+read -p "oui= o ou y | non = n ::" -n 1 -r
+echo    
+if [[ $REPLY =~ ^[YyOo]$ ]]
+then
+  install_rtl8821
+fi
 
-echo -e "\e[1m-> Installing ARDUINO IDE\e[0m"
-install_arduino
+echo -e  "\e[1;49;32mRestore Bash Profile ? ?\e[0m"
+echo
+read -p "oui= o ou y | non = n ::" -n 1 -r
+echo    
+if [[ $REPLY =~ ^[YyOo]$ ]]
+then
+  set_bashprofile
+fi
 
+echo -e  "\e[1;49;32mInstall ArduinoIDE  ?\e[0m"
+echo
+read -p "oui= o ou y | non = n ::" -n 1 -r
+echo    
+if [[ $REPLY =~ ^[YyOo]$ ]]
+then
+  install_arduino
+fi
 
-echo -e  "\e[1;49;32mInstaller Charles-Proxy ?\e[0m"
+echo -e  "\e[1;49;32mInstall Charles-Proxy ?\e[0m"
 echo
 read -p "oui= o ou y | non = n ::" -n 1 -r
 echo    
@@ -110,7 +130,7 @@ then
   install_charles
 fi
 
-echo -e  "\e[1;49;32mInstaller Boot-Repair ?\e[0m"
+echo -e  "\e[1;49;32mInstall Boot-Repair ?\e[0m"
 echo
 read -p "oui= o ou y | non = n ::" -n 1 -r
 echo    
