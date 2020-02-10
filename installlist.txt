@@ -1,3 +1,4 @@
+dpkg
 wget
 curl
 httpie
@@ -5,7 +6,6 @@ git
 uget
 p7zip-rar
 p7zip-full
-unace
 unrar
 zip
 unzip
@@ -36,7 +36,6 @@ audacity
 vlc
 youtube-dl
 youtube-dlg
-chromium-browser
 qbittorrent
 filezilla
 rclone

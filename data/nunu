@@ -1,0 +1,9 @@
+#!/bin/bash
+cd ~/logiciels/nunuStudio
+npm start & 
+echo ''
+echo -e '\e[102m+++++++ TIME TO CREATE +++++++\e[0m'
+cd ~/
+echo ''
+cd ~/
+

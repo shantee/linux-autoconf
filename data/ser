@@ -1,0 +1,11 @@
+#!/bin/bash
+type http-server >/dev/null 2>&1 || { echo >&2 "you need to install http-server (npm install http-server)"; exit 1; }
+if [ "$1" == "stop" ]; then
+p=$(pidof http-server)
+kill $p
+echo "extinction du serveur: "$p
+else
+http-server -a localhost &
+p=$(pidof http-server)
+echo "PID : "$p
+echo "to stop : ser stop"
