@@ -56,8 +56,14 @@ echo -e "\e[1;49;32m certains programmes seront installés dans le dossier $SOFT
 mkdir -p $SOFTDIR
 echo 
 
-
+## Install MICRO 
+echo -e  "\e[1;49;32mInstall MICRO (best CLI text editor) ?\e[0m"
+read -p "oui= o ou y | non = n :: " -n 1 -r
+echo    
+if [[ $REPLY =~ ^[YyOo]$ ]]
+then
 install_micro
+fi
 
 ## Install NVM
 echo -e  "\e[1;49;32mInstall NVM ?\e[0m"
