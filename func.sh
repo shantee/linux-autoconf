@@ -14,9 +14,22 @@ show_logo(){
   echo -e "\e[1;49;32m   _  ___ / /_/ // /_ / /_/ / /___ / /_/ /  / / /  __/   \e[0m"
   echo -e "\e[1;49;32m   /_/  |_\__,_/ \__/ \____/\____/ \____//_/ /_//_/      \e[0m"
   echo -e "\e[1;49;32m    auto install basic softwares, libraries & config     \e[0m"
+  echo -e "\e[1;49;32m          ( created and tested on Linux Mint)            \e[0m"  
   echo -e "\e[1;49;32m ____________________________________________________________\e[0m"
   echo
 }
+
+apt_maintenance(){
+echo
+echo -e "\e[1;49;32m-> updating APT (update)\e[0m";
+sudo apt update
+echo -e "\e[1;49;32m-> some cleaning APT (autoremove) \e[0m";
+sudo apt-get autoremove -y
+echo -e "\e[1;49;32m-> more cleaning APT (autoclean) \e[0m";
+sudo apt-get autoclean
+echo
+}
+
 create_ser(){
   echo
   echo -e "\e[1;49;33m*************************************\e[0m"
@@ -26,7 +39,7 @@ create_ser(){
     echo -e "\e[1;49;32mremoving existing /usr/bin/ser"
     sudo rm -f /usr/bin/ser
   fi 
-  sudo mv $AUTOCONFDIR/data/ser /usr/bin/ser
+  sudo cp -v $AUTOCONFDIR/data/ser /usr/bin/ser
   sudo chmod +x /usr/bin/ser
 }
 
@@ -44,9 +57,8 @@ install_rtl8821(){
 
 install_nunustudio(){
   echo 
-  echo -e "\e[1m=============  Installing nunuStudio  ===============\e[0m"  
-  cd "$SOFTDIR"||echo -e "\e[101mProblemn changing dir.\e[0m"
-  git clone https://github.com/tentone/nunuStudio --progress
+  echo -e "\e[1m=============  Downloading nunuStudio in ~/logiciels nunuStudio.zip ===============\e[0m"  
+  wget -qO ~/logiciels/nunuStudio.zip "https://github.com/tentone/nunuStudio/archive/master.zip" --show-progress
   echo -e "\e[1;49;33m*************************************\e[0m"
   echo -e "\e[1;49;33mCreating command nunu (/usr/bin/nunu)\e[0m"
   echo -e "\e[1;49;33m*************************************\e[0m"
@@ -54,15 +66,15 @@ install_nunustudio(){
     echo -e "\e[1;49;32mremoving existing /usr/bin/nunu"
     sudo rm -f /usr/bin/nunu
   fi   
-  sudo mv $AUTOCONFDIR/data/nunu /usr/bin/nunu
+  sudo cp -v $AUTOCONFDIR/data/nunu /usr/bin/nunu
   sudo chmod +x /usr/bin/nunu
 }
 ## restore bash profile
 set_bashprofile(){
  echo 
  echo -e "\e[1m===========  Restoring bash profile  ==============\e[0m"
- cp $AUTOCONFDIR/data/.bashrc $HOME/.bashrc
- cp $AUTOCONFDIR/data/.profile $HOME/.profile
+ cp -v $AUTOCONFDIR/data/.bashrc $HOME/.bashrc
+ cp -v $AUTOCONFDIR/data/.profile $HOME/.profile
 }
 install_arduino(){
   cd "$SOFTDIR"||echo -e "\e[101mProblemn changing dir.\e[0m"
