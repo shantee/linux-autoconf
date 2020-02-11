@@ -37,14 +37,15 @@ then
     fi
  done < "$REMOVELIST"
 fi
-echo -e "\e[1;49;32m-> updating APT (update)\e[0m";
-sudo apt update
-echo -e "\e[1;49;32m-> some cleaning APT (autoremove) \e[0m";
-sudo apt-get autoremove -y
-echo -e "\e[1;49;32m-> more cleaning APT (autoclean) \e[0m";
-sudo apt-get autoclean
-echo
 
+## APT maintenance : Update Autoclean autoremove
+echo -e  "\e[1;49;32mDo APT maintenance (update , autoclean, autoremove) ?\e[0m"
+read -p "oui= o ou y | non = n :: " -n 1 -r
+echo    
+if [[ $REPLY =~ ^[YyOo]$ ]]
+then
+ apt_maintenance
+fi
 
 echo 
 echo -e "\e[1;49;32m _______________________________________________________________\e[0m"
